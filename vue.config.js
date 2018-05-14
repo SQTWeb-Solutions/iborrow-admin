@@ -1,5 +1,4 @@
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   devServer: {
@@ -29,8 +28,7 @@ module.exports = {
         jQuery: 'jquery',
         'window.jQuery': 'jquery',
         Popper: ['popper.js', 'default']
-      }),
-      new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })
+      })
     ]
   }
 }
