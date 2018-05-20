@@ -1,0 +1,24 @@
+.c-breadcrumb {
+  display: block;
+  margin: 0;
+  padding: 0
+}
+
+.c-breadcrumb__item {
+  display: inline-block;
+  color: #848c98
+}
+
+.c-breadcrumb__item>a {
+  color: inherit
+}
+
+.c-breadcrumb__item:not(:last-child):after {
+  margin: 0 .625rem;
+  color: #a1a7af;
+  content: "/"
+}
+
+.c-breadcrumb__item.is-active {
+  color: #354052
+}

@@ -1,0 +1,26 @@
+.c-notification {
+  display: inline-block;
+  position: relative;
+  margin-right: .625rem
+}
+
+.c-notification__icon {
+  color: #7f8fa4;
+  font-size: 20px
+}
+
+.c-notification__number {
+  display: inline-block;
+  position: absolute;
+  top: -3px;
+  right: -.625rem;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 20px;
+  background-color: #ff7800;
+  color: #fff;
+  font-size: .75rem;
+  line-height: 20px;
+  text-align: center
+}

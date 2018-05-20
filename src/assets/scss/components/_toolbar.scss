@@ -1,0 +1,149 @@
+.c-toolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .07)
+}
+
+@media (max-width:768px) {
+  .c-toolbar {
+    padding: 20px 15px
+  }
+}
+
+.c-toolbar__title {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0;
+  color: #354052;
+  font-size: 18px
+}
+
+.c-toolbar__title.has-divider:after {
+  display: block;
+  width: 1px;
+  height: 15px;
+  margin: 0 13px;
+  background-color: #dfe3e9;
+  content: " "
+}
+
+.c-toolbar__meta {
+  margin: 0;
+  color: #7f8fa4;
+  font-size: 14px
+}
+
+.c-toolbar__icon {
+  display: block;
+  color: #ced0da;
+  font-size: 18px
+}
+
+.c-toolbar__icon.is-active {
+  color: #2ea1f8
+}
+
+.c-toolbar__icon.has-divider:after {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  width: 1px;
+  height: 15px;
+  margin: 0 13px;
+  background-color: #dfe3e9;
+  content: " "
+}
+
+.c-toolbar__link {
+  color: #7f8fa4;
+  font-size: 14px
+}
+
+.c-toolbar__link.has-dropdown:after {
+  display: inline-block;
+  margin-left: 10px;
+  color: inherit;
+  font-family: FontAwesome;
+  font-size: 12px;
+  content: "\f3d0"
+}
+
+@media only screen and (max-width:576px) {
+  .c-toolbar__nav {
+    margin-right: auto;
+    margin-left: auto
+  }
+}
+
+.c-toolbar__nav-item {
+  margin-right: 25px;
+  padding: 0 0 27px;
+  color: #7f8fa4;
+  font-size: 1rem
+}
+
+.c-toolbar__nav-item:last-child {
+  margin-right: 0
+}
+
+.c-toolbar__nav-item:hover {
+  color: #354052;
+  text-decoration: none
+}
+
+.c-toolbar__nav-item.is-active {
+  border-bottom: 2px solid #2ea1f8;
+  color: #2d3848;
+  font-weight: 600
+}
+
+@media only screen and (max-width:576px) {
+  .c-toolbar__nav-item {
+    padding-bottom: 20px
+  }
+}
+
+.c-toolbar__state {
+  border-right: 1px solid #e6eaee;
+  text-align: center
+}
+
+@media (max-width:768px) {
+  .c-toolbar__state {
+    margin-bottom: 1.875rem;
+    border-right: 0
+  }
+  .c-toolbar__state:nth-child(3),
+  .c-toolbar__state:nth-child(4) {
+    margin-bottom: 0
+  }
+}
+
+.c-toolbar__state:last-child {
+  border-right: 0
+}
+
+.c-toolbar__state-number {
+  margin-bottom: 0;
+  font-size: 1.75rem
+}
+
+.c-toolbar__state-title {
+  color: #7f8fa4;
+  font-size: .875rem;
+  text-transform: uppercase
+}

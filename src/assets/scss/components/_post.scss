@@ -1,0 +1,61 @@
+.c-post {
+  margin: 0 0 .9375rem;
+  border-radius: 4px
+}
+
+.c-post,
+.c-post__content {
+  width: 100%;
+  min-width: 100%
+}
+
+.c-post__content {
+  min-height: 120px;
+  padding: .625rem 1.875rem .625rem 20px;
+  border: 1px solid #e6eaee;
+  background-color: #fff;
+  color: #354052;
+  font-size: .875rem;
+  overflow-y: auto;
+  resize: none
+}
+
+.c-post__toolbar {
+  padding: 12px;
+  border: 1px solid #e6eaee;
+  border-top: 0;
+  background-color: #fafbfc;
+  overflow: hidden
+}
+
+.c-post__submit {
+  margin-right: 12px;
+  padding-right: .8rem;
+  padding-left: .8rem
+}
+
+.c-post__time {
+  position: relative;
+  padding: 0 0 0 12px
+}
+
+.c-post__time:before {
+  display: inline-block;
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 1px;
+  height: 70px;
+  background-color: #e6eaee;
+  content: ""
+}
+
+.c-post__time i {
+  margin-right: 5px
+}
+
+@media (max-width:576px) {
+  .c-post__time {
+    display: none
+  }
+}

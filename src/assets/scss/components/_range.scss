@@ -1,0 +1,30 @@
+.c-range {
+  width: 100%;
+  outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none
+}
+
+.c-range--inline {
+  width: 96px
+}
+
+.c-range::-webkit-slider-thumb {
+  position: relative;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #2da1f8;
+  background: linear-gradient(180deg, #2da1f8, #1991eb)
+}
+
+.c-range::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 1px;
+  background-color: #ced0da
+}

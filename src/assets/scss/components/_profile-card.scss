@@ -1,0 +1,138 @@
+.c-profile-card {
+  margin: 0 0 .9375rem;
+  padding: .625rem;
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  background-color: #fff
+}
+
+.c-profile-card__cover {
+  height: 100px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  overflow: hidden
+}
+
+.c-profile-card__cover>img {
+  display: block
+}
+
+.c-profile-card__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  top: -20px
+}
+
+.c-profile-card__avatar {
+  position: relative;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 75px;
+  height: 75px;
+  margin: 0 .9375rem 0 0;
+  border: 2px solid #fff;
+  border-radius: 100%;
+  overflow: hidden
+}
+
+.c-profile-card__avatar>img {
+  display: block
+}
+
+.c-profile-card__name {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+  margin: .9375rem 0 0;
+  font-size: 1rem;
+  line-height: 1.25
+}
+
+.c-profile-card__username {
+  display: block;
+  color: #7f8fa4;
+  font-size: .875rem
+}
+
+.c-profile-card__stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+
+.c-profile-card__stats:last-child {
+  margin-right: 0
+}
+
+.c-profile-card__state {
+  margin-right: 30px;
+  color: #7f8fa4;
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.375;
+  text-transform: uppercase
+}
+
+.c-profile-card__state:last-child {
+  margin-right: 0
+}
+
+.c-profile-card__state-number {
+  display: block;
+  margin: 0;
+  color: #354052;
+  font-size: 1.25rem;
+  font-weight: 600
+}
+
+.c-profile-card__social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0 .625rem 12px;
+  border-bottom: 1px solid #e6eaee
+}
+
+.c-profile-card__social-icon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  border-radius: 100%;
+  color: #fff;
+  line-height: 38px;
+  text-align: center
+}
+
+.c-profile-card__social-icon:hover {
+  color: #fff
+}
+
+.c-profile-card__meta {
+  padding: .9375rem .625rem 0
+}
+
+.c-profile-card__meta:last-child {
+  margin-bottom: 0
+}
+
+.c-profile-card__meta-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 0 .625rem;
+  color: #354052;
+  font-size: .875rem
+}
+
+.c-profile-card__meta-item>i {
+  margin-right: .75rem;
+  color: #7f8fa4;
+  font-size: 1rem
+}

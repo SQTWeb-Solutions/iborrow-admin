@@ -1,0 +1,126 @@
+.c-login-horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%
+}
+
+.c-login-horizontal .c-login__content-image,
+.c-login-horizontal .c-login__content-wrapper {
+  width: 50%
+}
+
+@media (max-width:768px) {
+  .c-login-horizontal .c-login__content-image,
+  .c-login-horizontal .c-login__content-wrapper {
+    width: 100%
+  }
+}
+
+.c-login-horizontal .c-login__header {
+  position: relative;
+  padding: 1.875rem 0 0;
+  padding-left: 1.875rem;
+  border: 0;
+  background-color: transparent
+}
+
+@media (max-width:768px) {
+  .c-login-horizontal .c-login__header {
+    padding-top: 3.125rem
+  }
+}
+
+.c-login-horizontal .c-login__icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: -35px;
+  right: 0;
+  left: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  border-radius: 100%;
+  color: #fff;
+  font-size: 1.25rem;
+  background: #2ea1f8;
+  background: linear-gradient(180deg, #2ea1f8, #1990ea)
+}
+
+.c-login-horizontal .c-login__icon--left {
+  right: auto;
+  left: 30px
+}
+
+.c-login-horizontal .c-login__icon--rounded {
+  top: -25px;
+  width: 45px;
+  height: 45px;
+  border-radius: 4px
+}
+
+.c-login-horizontal .c-login__title {
+  margin: 0;
+  font-size: 24px;
+  text-align: left
+}
+
+.c-login-horizontal .c-login__content {
+  padding: .9375rem 1.875rem 1.875rem
+}
+
+.c-login-horizontal .c-login__content-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1.875rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #49515d;
+  color: #fff;
+  overflow: hidden
+}
+
+.c-login-horizontal .c-login__content-image img {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: .2
+}
+
+.c-login-horizontal .c-login__content-image h3,
+.c-login-horizontal .c-login__content-image p {
+  color: #fff
+}
+
+.c-login-horizontal .c-login__content-image p {
+  font-size: 1rem;
+  opacity: .9
+}
+
+@media (max-width:768px) {
+  .c-login-horizontal .c-login__content-image {
+    display: none
+  }
+}

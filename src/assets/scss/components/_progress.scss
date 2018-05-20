@@ -1,0 +1,70 @@
+.c-progress {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin: 0 0 15px;
+  border-radius: 20px;
+  background-color: #e2e7ee
+}
+
+.c-progress__bar {
+  position: relative;
+  height: 100%;
+  border-radius: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  background: #2da1f8;
+  background: linear-gradient(180deg, #2da1f8, #1991eb)
+}
+
+.c-progress--xsmall {
+  height: 2px
+}
+
+.c-progress--small {
+  height: 4px
+}
+
+.c-progress--medium {
+  height: 8px
+}
+
+.c-progress--danger .c-progress__bar {
+  background: #f95359;
+  background: linear-gradient(180deg, #f95359, #d35847)
+}
+
+.c-progress--info .c-progress__bar {
+  background: #2da1f8;
+  background: linear-gradient(180deg, #2da1f8, #1991eb)
+}
+
+.c-progress--primary .c-progress__bar {
+  background: #475364;
+  background: linear-gradient(180deg, #475364, #273142)
+}
+
+.c-progress--success .c-progress__bar {
+  background: #5ad946;
+  background: linear-gradient(180deg, #5ad946, #2bb415)
+}
+
+.c-progress--warning .c-progress__bar {
+  background: #f8cf5d;
+  background: linear-gradient(180deg, #f8cf5d, #fdc018)
+}
+
+.c-progress--fancy .c-progress__bar {
+  background: #9d90e4;
+  background: linear-gradient(180deg, #9d90e4, #8261e6)
+}
+
+.c-progress__bar .c-progress__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: red;
+  z-index: 200
+}

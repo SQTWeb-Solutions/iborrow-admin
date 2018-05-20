@@ -1,0 +1,111 @@
+.c-board {
+  position: relative;
+  margin-bottom: 3.125rem
+}
+
+.c-board__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: .625rem
+}
+
+.c-board__title {
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: 600
+}
+
+.c-board__actions {
+  display: block;
+  position: relative
+}
+
+.c-board__actions>a {
+  color: #bbc5d5
+}
+
+.c-board__content {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  background-color: #fafbfc;
+  overflow-y: auto
+}
+
+.c-board__btn {
+  display: block;
+  position: absolute;
+  bottom: -16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 100%;
+  color: #fff;
+  font-size: .875rem;
+  line-height: 32px;
+  text-align: center;
+  z-index: 200;
+  background: #2ea1f8;
+  background: linear-gradient(180deg, #2ea1f8, #1990ea)
+}
+
+.c-board__btn:hover {
+  color: #fff
+}
+
+.c-add-board {
+  display: block;
+  width: 100%;
+  margin-top: 2.125rem;
+  margin-bottom: 1.875rem;
+  padding: .9375rem 1.25rem;
+  border-radius: 4px;
+  background-color: #b7c0cd;
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 600;
+  opacity: .8
+}
+
+.c-add-board>i {
+  margin-right: .625rem
+}
+
+.c-add-board:hover {
+  color: #fff;
+  text-decoration: none;
+  opacity: 1
+}
+
+.c-board--danger .c-board__content,
+.c-board--info .c-board__content,
+.c-board--success .c-board__content,
+.c-board--warning .c-board__content {
+  border-top: 3px solid #2ea1f8;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0
+}
+
+.c-board--info .c-board__content {
+  border-top-color: #2ea1f8
+}
+
+.c-board--success .c-board__content {
+  border-top-color: #1bb934
+}
+
+.c-board--warning .c-board__content {
+  border-top-color: #fd9a18
+}
+
+.c-board--danger .c-board__content {
+  border-top-color: #ed1c24
+}

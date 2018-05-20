@@ -19,6 +19,7 @@ import './resources'
 
 import 'bootstrap/scss/bootstrap.scss'
 import 'vue-toastr/src/vue-toastr.scss'
+import '@/assets/scss/dashboard.scss'
 
 import fontawesome from '@fortawesome/fontawesome'
 import brands from '@fortawesome/fontawesome-free-brands'
@@ -28,7 +29,6 @@ import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 fontawesome.library.add(brands, solid)
 
 require('bootstrap')
-require('@/assets/main.js')
 
 Vue.config.productionTip = false
 Vue.use(VueAuthImage)
@@ -47,3 +47,5 @@ new Vue({
   router,
   ...layout
 }).$mount('#app')
+
+// TODO: Install Datatable, Select2

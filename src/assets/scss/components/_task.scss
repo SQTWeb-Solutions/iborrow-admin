@@ -1,0 +1,81 @@
+.c-task {
+  margin-bottom: .625rem;
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  overflow: hidden
+}
+
+.c-task:last-of-type {
+  margin-bottom: 0
+}
+
+.c-task__img {
+  display: block
+}
+
+.c-task__content {
+  margin: 0;
+  padding: .9375rem .625rem .625rem;
+  color: #354052;
+  font-size: .875rem;
+  font-weight: 600
+}
+
+.c-task__indicators {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 0 .625rem .625rem
+}
+
+.c-task__indicator,
+.c-task__indicators {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+
+.c-task__indicator {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin-right: .9375rem;
+  color: #7f8fa4;
+  font-size: .75rem;
+  font-weight: 600
+}
+
+.c-task__indicator>i {
+  display: inline-block;
+  margin-right: .3125rem;
+  color: #bbc5d5;
+  font-size: 1rem
+}
+
+.c-task--danger,
+.c-task--info,
+.c-task--success,
+.c-task--warning {
+  border-left: 3px solid #2ea1f8;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0
+}
+
+.c-task--info {
+  border-left-color: #2ea1f8
+}
+
+.c-task--success {
+  border-left-color: #1bb934
+}
+
+.c-task--warning {
+  border-left-color: #fd9a18
+}
+
+.c-task--danger {
+  border-left-color: #ed1c24
+}

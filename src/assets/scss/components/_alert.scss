@@ -1,0 +1,51 @@
+
+/* ==========================================================================
+   #ALERTS
+   ========================================================================== */
+.c-alert {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: $alert-margin;
+  padding: $alert-padding;
+  transition: all .3s;
+  border-radius: $base-border-radius;
+  color: $color-white;
+  .c-close {
+    position: absolute;
+    top: $spacer-small;
+    right: $spacer;
+  }
+  // fading in of the alert box
+  .fade {
+    transition: opacity .3s;
+    opacity: 0;
+    .show {
+      opacity: 1
+    }
+  }
+}
+
+.c-alert__icon {
+  position: relative;
+  bottom: $alert-icon-border-bottom;
+  margin-right: $alert-icon-margin-right;
+  font-size: $alert-icon-font-size;
+  opacity: .7
+}
+
+.c-alert--success {
+  background-color: $color-success
+}
+
+.c-alert--info {
+  background-color: $color-info
+}
+
+.c-alert--warning {
+  background-color: $color-warning
+}
+
+.c-alert--danger {
+  background-color: $color-danger
+}

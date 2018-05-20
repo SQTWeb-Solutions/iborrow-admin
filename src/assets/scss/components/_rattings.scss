@@ -1,0 +1,12 @@
+.c-rating {
+  display: block
+}
+
+.c-rating__icon {
+  color: #bbbfc5;
+  font-size: .75rem
+}
+
+.c-rating__icon.is-active {
+  color: #fdbc0e
+}

@@ -1,0 +1,99 @@
+.c-tooltip {
+  position: relative
+}
+
+.c-tooltip:after {
+  max-height: 5rem;
+  padding: .625rem .9375rem;
+  border-radius: 4px;
+  background-color: #1d2531;
+  color: #fff;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-transform: none;
+  white-space: nowrap;
+  content: attr(aria-label);
+  overflow: hidden;
+  z-index: 200
+}
+
+.c-tooltip:after,
+.c-tooltip:before {
+  position: absolute;
+  transition: opacity .3s;
+  opacity: 0;
+  visibility: hidden
+}
+
+.c-tooltip:before {
+  border: 6px solid transparent;
+  content: " "
+}
+
+.c-tooltip:hover:after,
+.c-tooltip:hover:before {
+  opacity: 1;
+  visibility: visible
+}
+
+.c-tooltip--top:after {
+  bottom: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -12px);
+  transform: translate(-50%, -12px)
+}
+
+.c-tooltip--top:before {
+  bottom: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  border-top-color: #1d2531
+}
+
+.c-tooltip--bottom:after {
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 12px);
+  transform: translate(-50%, 12px)
+}
+
+.c-tooltip--bottom:before {
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  border-bottom-color: #1d2531
+}
+
+.c-tooltip--right:after {
+  top: 50%;
+  left: 100%;
+  -webkit-transform: translate(12px, -50%);
+  transform: translate(12px, -50%)
+}
+
+.c-tooltip--right:before {
+  top: 50%;
+  left: 100%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-right-color: #1d2531
+}
+
+.c-tooltip--left:after {
+  top: 50%;
+  right: 100%;
+  -webkit-transform: translate(-12px, -50%);
+  transform: translate(-12px, -50%)
+}
+
+.c-tooltip--left:before {
+  top: 50%;
+  right: 100%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border-left-color: #1d2531
+}

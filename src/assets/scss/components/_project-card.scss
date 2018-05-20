@@ -1,0 +1,36 @@
+.c-project-card {
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden
+}
+
+.c-project-card__img {
+  display: block
+}
+
+.c-project-card__head {
+  padding: 1.25rem 1.875rem;
+  border-bottom: 1px solid #e6eaee
+}
+
+.c-project-card__title {
+  margin: 0;
+  font-size: 1rem
+}
+
+.c-project-card__info {
+  margin: 0;
+  color: #7f8fa4;
+  font-size: .75rem
+}
+
+.c-project-card__meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1.25rem 1.875rem
+}

@@ -1,0 +1,46 @@
+.c-plan {
+  margin: 0 5px 30px;
+  padding: 40px 20px 25px;
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  background-color: transparent;
+  text-align: left
+}
+
+.c-plan__img {
+  position: absolute;
+  top: -20px
+}
+
+.c-plan__title {
+  margin: 0;
+  color: #7f8fa4;
+  font-size: 12px;
+  text-transform: uppercase
+}
+
+.c-plan__price {
+  margin: 0;
+  font-size: 28px
+}
+
+.c-plan__note {
+  margin: 0;
+  font-size: .75rem;
+  font-weight: 600;
+  text-transform: uppercase
+}
+
+.c-plan__divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 15px 0;
+  background-color: #e6eaee
+}
+
+.c-plan__feature {
+  margin-bottom: 5px;
+  color: #7f8fa4;
+  font-size: .875rem
+}

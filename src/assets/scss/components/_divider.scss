@@ -1,0 +1,51 @@
+.c-divider {
+  display: block;
+  position: relative;
+  height: 1px;
+  background-color: #dfe3e9;
+  color: #7f8fa4;
+  font-size: .75rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase
+}
+
+.c-divider.has-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background-color: transparent
+}
+
+.c-divider.has-text:after,
+.c-divider.has-text:before {
+  width: 42%;
+  height: 1px;
+  background-color: #dfe3e9;
+  content: ""
+}
+
+@media (max-width:768px) {
+  .c-divider:after,
+  .c-divider:before {
+    width: 30%
+  }
+}
+
+.c-divider--small {
+  font-size: .875rem;
+  text-transform: none
+}
+
+.c-divider--small.has-text:after,
+.c-divider--small.has-text:before {
+  width: 25%;
+  height: 1px;
+  background-color: #dfe3e9
+}

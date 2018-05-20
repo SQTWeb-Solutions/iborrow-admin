@@ -1,0 +1,119 @@
+/*!
+ * iBorrow Admin Dashboard - v1.8
+ * Copyright 2018 QuadriPhobs
+ * @iamphobs
+ */
+
+//
+// Table of content:
+//
+// Tools........... iBorrow's scss mixins & functions
+// Settings........ iBorrow's scss variables
+// Base............ Resets, bare elements styling
+// Vendors......... Exteneral assests
+// Objects......... Layout-specific
+// Components...... UI-Kit, admin dashboard components
+// Utilities....... Helper classes e.g. display utilities
+//
+// TOOLS
+//
+@import "tools/linear-gradient";
+@import "tools/rem";
+@import "tools/respond-to";
+//
+// SETTINGS
+//
+@import "settings/global";
+@import "settings/alert";
+@import "settings/avatars";
+@import "settings/badge";
+//
+// BASE
+//
+@import "base/global";
+@import "base/typography";
+//
+// VENDORS
+//
+@import "vendor/feather";
+@import "vendor/select2";
+@import "vendor/datatable";
+@import "vendor/datepicker";
+//
+// OBJECTS
+//
+@import "objects/page";
+@import "objects/media";
+@import "objects/line";
+@import "objects/ratio";
+//
+// COMPONENTS
+//
+@import "custom";
+@import "fade";
+@import "components/alert";
+@import "components/avatar";
+@import "components/badge";
+@import "components/breadcrumb";
+@import "components/button";
+@import "components/candidate";
+@import "components/card";
+@import "components/chat";
+@import "components/choice";
+@import "components/close";
+@import "components/counter";
+@import "components/credit-card";
+@import "components/divider";
+@import "components/dropdown";
+@import "components/event";
+@import "components/feed";
+@import "components/field";
+@import "components/fileitem";
+@import "components/gallery";
+@import "components/icon";
+@import "components/input";
+@import "components/invoice";
+@import "components/login";
+@import "components/menu";
+@import "components/message";
+@import "components/modal";
+@import "components/navbar";
+@import "components/notification";
+@import "components/overview";
+@import "components/pagination";
+@import "components/panel";
+@import "components/plan";
+@import "components/popover";
+@import "components/post";
+@import "components/profile-card";
+@import "components/projects";
+@import "components/range";
+@import "components/rattings";
+@import "components/search";
+@import "components/sidebar";
+@import "components/stage";
+@import "components/state-card";
+@import "components/state";
+@import "components/stream";
+@import "components/summary";
+@import "components/switch";
+@import "components/table";
+@import "components/task";
+@import "components/toggle";
+@import "components/toolbar";
+@import "components/tooltip";
+//
+// UTILITIES
+//
+@import "utilities/border";
+@import "utilities/clearfix";
+@import "utilities/background";
+@import "utilities/display";
+@import "utilities/flex";
+@import "utilities/float";
+@import "utilities/opacity";
+@import "utilities/hidden";
+@import "utilities/overflow";
+@import "utilities/size";
+@import "utilities/spacing";
+@import "utilities/typography";

@@ -1,0 +1,84 @@
+.c-input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: .59375rem .9375rem;
+  transition: all .3s;
+  border: 1px solid #dfe3e9;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #354052;
+  font-size: .875rem;
+  font-weight: 400;
+  resize: none
+}
+
+.c-input::-webkit-input-placeholder {
+  transition: opacity .3s;
+  color: rgba(53, 64, 82, .5);
+  font-weight: 400;
+  opacity: .5
+}
+
+.c-input:-ms-input-placeholder,
+.c-input::-ms-input-placeholder {
+  transition: opacity .3s;
+  color: rgba(53, 64, 82, .5);
+  font-weight: 400;
+  opacity: .5
+}
+
+.c-input::placeholder {
+  transition: opacity .3s;
+  color: rgba(53, 64, 82, .5);
+  font-weight: 400;
+  opacity: .5
+}
+
+.c-input:focus {
+  border-color: #2ea1f8;
+  outline: none
+}
+
+.c-input:focus::-webkit-input-placeholder {
+  opacity: .2
+}
+
+.c-input:focus:-ms-input-placeholder,
+.c-input:focus::-ms-input-placeholder {
+  opacity: .2
+}
+
+.c-input:focus::placeholder {
+  opacity: .2
+}
+
+.c-input.is-disabled,
+.c-input:disabled {
+  border-color: #dfe3e9;
+  background-color: #e6eaee;
+  color: rgba(53, 64, 82, .5);
+  cursor: not-allowed
+}
+
+textarea.c-input {
+  min-height: 90px;
+  font-size: .875rem;
+  font-weight: 400
+}
+
+.c-input--success,
+.c-input--success:focus {
+  border-color: #1bb934
+}
+
+.c-input--warning,
+.c-input--warning:focus {
+  border-color: #fd9a18
+}
+
+.c-input--danger,
+.c-input--danger:focus {
+  border-color: #ed1c24;
+  color: #ed1c24
+}

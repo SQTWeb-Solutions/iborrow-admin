@@ -1,0 +1,35 @@
+.c-menu__title {
+  margin: 0 0 .625rem 20px;
+  color: #7f8fa4;
+  font-size: .75rem;
+  font-weight: 400;
+  text-transform: uppercase
+}
+
+.c-menu__link {
+  display: inline-block;
+  width: 100%;
+  padding: 5px 0 5px 20px;
+  border-radius: 4px;
+  color: #354052;
+  font-size: .875rem;
+  font-weight: 400
+}
+
+.c-menu__link:hover {
+  text-decoration: none
+}
+
+.c-menu__link.is-active {
+  background-color: #2ea1f8;
+  color: #fff
+}
+
+.c-menu__icon {
+  margin-right: .625rem;
+  color: #7f8fa4
+}
+
+.c-menu__link:hover .c-menu__icon {
+  color: #2ea1f8
+}

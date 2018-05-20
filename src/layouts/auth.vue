@@ -2,7 +2,9 @@
   <transition name="page" mode="out-in">
     <div id="app" class="main-page-wrapper">
       <loading ref="loading"></loading>
-      <router-view/>
+      <div class="o-page__card">
+        <router-view/>
+      </div>
     </div>
   </transition>
 </template>
@@ -10,15 +12,15 @@
 <script>
 import Loading from '@/components/Loading'
 export default {
-  name: 'default',
+  name: 'auth',
 
   data: () => ({}),
   metaInfo () {
     return {
-      title: 'iBorrow Admin',
+      title: 'Authentication',
       titleTemplate: '%s · iBorrow',
       htmlAttrs: { lang: 'en', dir: 'ltr' },
-      bodyAttrs: { class: 'no-transition' },
+      bodyAttrs: { class: 'o-page o-page--center' },
       noscript: [{ innerHTML: 'This website requires JavaScript.' }]
     }
   },

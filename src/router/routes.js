@@ -7,7 +7,18 @@ export default [
     name: 'landing-page',
     component: require('@/views/Welcome/WelcomeView').default
   },
-  { path: '*', component: require('@/views/Error/NotFoundView') }
+  // routes for authentication with the guest middleware to check if teh user is logged in or not
+  ...middleware('guest', [
+    { path: '/auth',
+      component: () => import('@/views/Auth/Template'),
+      children: [
+        { path: '', redirect: { name: 'auth.login' } },
+        { path: 'login', name: 'auth.login', component: require('@/views/Auth/Login').default, meta: { layout: 'auth' } },
+        { path: 'password/forgot', name: 'auth.password.forgot', component: require('@/views/Auth/ForgotPassword').default, meta: { layout: 'auth' } }
+      ]
+    }
+  ]),
+  { path: '*', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
 ]
 
 /**

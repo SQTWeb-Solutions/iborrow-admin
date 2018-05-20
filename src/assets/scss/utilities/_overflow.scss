@@ -1,0 +1,33 @@
+/* ==========================================================================
+   #OVERFLOW UTILITIES
+   ========================================================================== */
+
+// sass-lint:disable no-important
+/**
+ * Use overflow utilities to set the scroll bar for content
+ */
+
+
+.u-overflow-auto {
+  overflow: auto
+}
+
+.u-overflow-scroll {
+  overflow: scroll
+}
+
+.u-overflow-x-auto {
+  overflow: auto
+}
+
+.u-overflow-x-scroll {
+  overflow: scroll
+}
+
+.u-overflow-y-auto {
+  overflow: auto
+}
+
+.u-overflow-y-scroll {
+  overflow: scroll
+}

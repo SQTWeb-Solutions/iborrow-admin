@@ -1,0 +1,155 @@
+/* ==========================================================================
+   #AVATAR
+   ========================================================================== */
+
+/**
+ * 1. Ensure that the avatar will not be shrinked.
+ */
+
+.c-avatar {
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  align-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+
+  .has-dropdown {
+    cursor: pointer;
+    overflow: visible;
+    &:after {
+      display: block;
+      padding-left: 10px;
+      color: #7f8fa4;
+      font-family: FontAwesome;
+      content: "\f107";
+    }
+    &:hover {
+      text-decoration: none
+    }
+  }
+}
+
+.c-avatar .c-avatar__img {
+  width: $avatar-img-width;
+	min-width: $avatar-img-width; /* [1] */
+	height: $avatar-img-height;
+}
+
+.c-avatar__img {
+  border-radius: 100%;
+  overflow: hidden;
+  &.c-avatar--square {
+    border-radius: 0 !important;
+  }
+}
+
+
+.c-avatar__name {
+  width: $avatar-img-width;
+	min-width: $avatar-img-width; /* [1] */
+	height: $avatar-img-height;
+	border-radius: 100%;
+  overflow: hidden;
+  line-height: $avatar-img-height;
+  background: $color-success;
+  text-align: center;
+  font-size: $avatar-font-size;
+  color: #ffffff;
+  &.c-avatar--square {
+    border-radius: 0 !important;
+  }
+}
+
+.c-avatar--xsmall {
+	.c-avatar__img {
+		width: $avatar-img-xsmall-width;
+		min-width: $avatar-img-xsmall-width;
+		height: $avatar-img-xsmall-height;
+  }
+  .c-avatar__name {
+    width: $avatar-img-xsmall-width;
+		min-width: $avatar-img-xsmall-width;
+    height: $avatar-img-xsmall-height;
+    line-height: $avatar-img-xsmall-height;
+    font-size: $avatar-font-size-sm;
+  }
+}
+
+.c-avatar--small {
+	.c-avatar__img {
+		width: $avatar-img-small-width;
+		min-width: $avatar-img-small-width;
+		height: $avatar-img-small-height;
+  }
+  .c-avatar__name {
+    width: $avatar-img-small-width;
+		min-width: $avatar-img-small-width;
+		height: $avatar-img-small-height;
+    line-height: $avatar-img-small-height;
+  }
+}
+
+.c-avatar--medium {
+	.c-avatar__img {
+		width: $avatar-img-medium-width;
+		min-width: $avatar-img-medium-width;
+		height: $avatar-img-medium-height;
+  }
+  .c-avatar__name {
+    width: $avatar-img-medium-width;
+		min-width: $avatar-img-medium-width;
+		height: $avatar-img-medium-height;
+    line-height: $avatar-img-medium-height;
+  }
+}
+
+.c-avatar--large {
+	.c-avatar__img {
+		width: $avatar-img-large-width;
+		min-width: $avatar-img-large-width;
+		height: $avatar-img-large-height;
+  }
+  .c-avatar__name {
+    width: $avatar-img-large-width;
+		min-width: $avatar-img-large-width;
+		height: $avatar-img-large-height;
+    line-height: $avatar-img-large-height;
+  }
+}
+
+.c-avatar--xlarge {
+	.c-avatar__img {
+		width: $avatar-img-xlarge-width;
+		min-width: $avatar-img-xlarge-width;
+		height: $avatar-img-xlarge-height;
+  }
+  .c-avatar__name {
+    width: $avatar-img-xlarge-width;
+		min-width: $avatar-img-xlarge-width;
+		height: $avatar-img-xlarge-height;
+    line-height: $avatar-img-xlarge-height;
+  }
+}
+
+.c-avatar--huge {
+	.c-avatar__img {
+		width: $avatar-img-huge-width;
+		min-width: $avatar-img-huge-width;
+		height: $avatar-img-huge-height;
+  }
+  .c-avatar__name {
+    width: $avatar-img-huge-width;
+		min-width: $avatar-img-huge-width;
+		height: $avatar-img-huge-height;
+    line-height: $avatar-img-huge-height;
+  }
+}
+
+
+.c-avatar-link {
+  cursor: pointer
+}

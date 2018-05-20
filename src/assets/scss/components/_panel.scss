@@ -1,0 +1,26 @@
+.c-panel {
+  height: 100%;
+  margin: 0;
+  padding: 1.875rem;
+  border: 1px solid #e6eaee;
+  border-top: 0;
+  background-color: #fff
+}
+
+.c-panel__title {
+  margin-bottom: 1.875rem;
+  font-size: 1rem
+}
+
+.c-panel__widget:after {
+  display: block;
+  height: 1px;
+  margin: 1.875rem 0;
+  background-color: #e6eaee;
+  content: " ";
+  opacity: .5
+}
+
+.c-panel__widget:last-child:after {
+  content: none
+}
