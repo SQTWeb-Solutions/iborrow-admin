@@ -101,11 +101,6 @@
           </li>
           <li class="c-sidebar__item">
             <a class="c-sidebar__link" target="_blank" href="#">
-              <i class="feather icon-settings u-mr-xsmall"></i>Account Settings
-            </a>
-          </li>
-          <li class="c-sidebar__item">
-            <a class="c-sidebar__link" target="_blank" href="#">
               <i class="feather icon-log-out u-mr-xsmall"></i>Logout
             </a>
           </li>

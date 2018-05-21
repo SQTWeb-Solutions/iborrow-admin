@@ -6,7 +6,14 @@
       </a>
       <h1 class="u-h3 u-text-center u-mb-zero">Welcome back! Please login.</h1>
     </header>
-    <form class="c-card__body" method="post">
+    <form class="c-card__body" method="post" @submit.prevent="login">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" v-if="hasError">
+          <strong>Error!</strong> <br />
+          {{errorMessage}}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
       <div class="c-field u-mb-small">
         <label class="c-field__label" for="username">Log in with your e-mail address/username</label>
         <input class="c-input" :class="{ 'c-input--danger': errors.has('username') }" v-model="username"  name="username" v-validate="'required'" type="text" id="username" placeholder="clark@iborrow.com">
@@ -26,6 +33,7 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 import FormError from '@/components/FormError'
 export default {
   name: 'login',
@@ -38,11 +46,36 @@ export default {
       username: null,
       password: null,
       errorMessage: null,
-      hasError: false,
-      notVerified: false,
-      verificationId: null,
-      success: false,
-      successMessage: null
+      hasError: false
+    }
+  },
+  methods: {
+    ...mapActions('auth', {
+      attemptLogin: 'login'
+    }),
+
+    login () {
+      this.$validator.validateAll().then((result) => {
+        this.loading = true
+        this.hasError = false
+        this.errorMessage = null
+        if (result) {
+          let data = {
+            username: this.username,
+            password: this.password
+          }
+          return this.attemptLogin(data)
+            .then((res) => this.$router.push({ name: 'landing-page' }))
+            .catch(err => {
+              console.log(err)
+              this.loading = false
+              this.hasError = true
+              this.errorMessage = err.response.data.message
+            })
+        } else {
+          this.loading = false
+        }
+      })
     }
   }
 }

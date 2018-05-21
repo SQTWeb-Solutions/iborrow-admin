@@ -6,29 +6,24 @@ import * as types from '../mutation-types'
 export const state = {
   user: null,
   token: Cookies.get('token'),
-  roles: Cookies.get('roles'),
-  onboard: Cookies.get('onboard')
+  roles: Cookies.get('roles')
 }
 
 // getters
 export const getters = {
   user: state => state.user,
   token: state => state.token,
-  roles: state => state.roles,
-  onboard: state => state.onboard,
   check: state => state.user !== null
 }
 
 // mutations
 export const mutations = {
   // mutation to save the generated token for the user from jwt on server
-  [types.SAVE_TOKEN] (state, { token, roles, remember, onboard }) {
+  [types.SAVE_TOKEN] (state, { token, roles, remember }) {
     state.token = token
     state.roles = roles
-    state.onboard = onboard
     Cookies.set('token', token, { expires: remember ? 365 : null })
     Cookies.set('roles', roles, { expires: remember ? 365 : null })
-    Cookies.set('onboard', onboard, { expires: remember ? 365 : null })
   },
   // fer user information from the token from the server
   [types.FETCH_USER_SUCCESS] (state, { user }) {
@@ -52,19 +47,23 @@ export const mutations = {
   // update the user info after the user has successfully update profile
   [types.UPDATE_USER] (state, { user }) {
     state.user = user
-  },
-  // update the onboard status for the user so it wont view the page again for ever
-  [types.UPDATE_ONBOARD] (state) {
-    state.onboard = true
-    Cookies.set('onboard', true)
   }
 }
 
 // actions
 export const actions = {
-  // action to save the token generated into a temporary variable for js-cookie to store
+  // action to save the token generated into a temporary variable
   saveToken ({ commit, dispatch }, payload) {
     commit(types.SAVE_TOKEN, payload)
+  },
+  // action to log the user in on the server and fetch the user data
+  login ({dispatch}, details) {
+    return axios.post('/api/auth/signin', details)
+      .then(res => dispatch('auth/saveToken', {
+        token: res.data.token,
+        roles: res.data.roles,
+        remember: true
+      }))
   },
   // ajax request to check the logged in user information
   async fetchUser ({ commit }) {
@@ -86,13 +85,5 @@ export const actions = {
       await axios.post('/api/auth/signout')
     } catch (e) { }
     commit(types.LOGOUT)
-  },
-
-  async updateOnboard ({ commit }) {
-    try {
-      await axios.post('/api/user/onboard/update')
-    } catch (e) { }
-
-    commit(types.UPDATE_ONBOARD)
   }
 }

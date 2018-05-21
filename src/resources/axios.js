@@ -36,7 +36,7 @@ axios.interceptors.response.use(response => response, error => {
   } = error.response
 
   if (status >= 500) {
-    this.$toastr.e(error.data.message)
+    console.log(error.message)
   }
 
   if (status === 401 && store.getters['auth/check']) {

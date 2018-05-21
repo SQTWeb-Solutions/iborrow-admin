@@ -26,7 +26,7 @@ export default {
   name: 'notifications',
   data () {
     return {
-      count: Object.keys(this.items).length || false
+      count: (this.items) ? this.items.length : false // check if the item exist at all if not then set the count to null/false
     }
   },
   components: {
@@ -49,7 +49,7 @@ export default {
       default: 'icon-bell'
     },
     items: {
-      type: Object,
+      type: Array,
       defalt: {}
     }
   }
