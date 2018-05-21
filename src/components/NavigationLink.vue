@@ -96,7 +96,7 @@
         </a>
       </li>
       <li class="c-sidebar__item">
-        <a class="c-sidebar__link" target="_blank" href="#">
+        <a class="c-sidebar__link" href="#" @click.prevent="logoutUser">
           <i class="feather icon-log-out u-mr-xsmall"></i>Logout
         </a>
       </li>
@@ -109,6 +109,19 @@ export default {
   name: 'navigation-link',
   created () {
     this.$emit('rendered', true)
+  },
+  methods: {
+    //  Logout the user from the application
+    async logoutUser (e) {
+      e.preventDefault()
+      try {
+        this.$toastr.s('Logging out now')
+        await this.$store.dispatch('auth/logout')
+        this.$router.push({ name: 'landing-page' })
+      } catch (err) {
+        this.$toastr.e(err.response.data.message)
+      }
+    }
   }
 }
 </script>

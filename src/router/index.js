@@ -55,19 +55,19 @@ function make () {
  * @param {Object}
  */
 function beforeEnter (route) {
+  // check if the route has children properties
   if (route.children) {
     route.children.forEach(beforeEnter)
   }
-
+  // check if the route does not have a
   if (!route.middleware) {
     return route
   }
-
+  // set the layout for route
   route.beforeEnter = (...args) => {
     if (!Array.isArray(route.middleware)) {
       route.middleware = [route.middleware]
     }
-
     route.middleware.forEach(middleware => {
       if (typeof middleware === 'function') {
         middleware(...args)

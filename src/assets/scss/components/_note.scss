@@ -1,0 +1,38 @@
+/* ==========================================================================
+   #NOTES
+   ========================================================================== */
+
+   .c-note {
+    display: flex;
+    padding: 12px;
+    border-radius: 4px;
+    background-color: $color-sky-light;
+    text-align: left;
+    &.c-note-danger {
+      background-color: $color-danger;
+      color: #fff;
+      p { color: #fff; }
+    }
+    &.c-note-warning {
+      background-color: $color-warning;
+      color: #000;
+      p { color: #000; }
+    }
+    &.c-note-success {
+      background-color: $color-success;
+      color: #fff;
+      p { color: #fff; }
+    }
+    &.c-note-primary {
+      background-color: $color-primary;
+      color: #fff;
+      p { color: #fff; }
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .c-note__icon {
+    margin-right: 10px;
+  }

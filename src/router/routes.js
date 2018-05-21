@@ -25,11 +25,14 @@ export default [
       path: '/members',
       component: () => import('@/views/Members/Template'),
       children: [
-        {
-          path: '', name: 'members.all', component: require('@/views/Members/MemberView').default, meta: { layout: 'dashboard', title: 'All Members' }
-        }
+        { path: '', name: 'members.all', component: require('@/views/Members/MemberView').default, meta: { layout: 'dashboard', title: 'All Members' } },
+        ...middleware(['roles'], [
+          { path: 'add', name: 'members.add', component: require('@/views/Members/AddMember').default, meta: { layout: 'dashboard', title: 'Add Member', roles: ['admin', 'editor'] } },
+          { path: '/edit/:username', name: 'members.edit', component: require('@/views/Members/AddMember').default, meta: { layout: 'dashboard', title: 'Edit Member', roles: ['admin'] } }
+        ])
       ]
-    }
+    },
+    { path: '/unauthorised', name: 'unauthorised', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
   ]),
   { path: '*', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
 ]
