@@ -20,7 +20,16 @@ export default [
     }
   ]),
   ...middleware('auth', [
-    { path: '/dashboard', name: 'dashboard', component: require('@/views/Dashboard/DashboardView').default, meta: { layout: 'dashboard', title: 'Dashboard' } }
+    { path: '/dashboard', name: 'dashboard', component: require('@/views/Dashboard/DashboardView').default, meta: { layout: 'dashboard', title: 'Dashboard' } },
+    {
+      path: '/members',
+      component: () => import('@/views/Members/Template'),
+      children: [
+        {
+          path: '', name: 'members.all', component: require('@/views/Members/MemberView').default, meta: { layout: 'dashboard', title: 'All Members' }
+        }
+      ]
+    }
   ]),
   { path: '*', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
 ]

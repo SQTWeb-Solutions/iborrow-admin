@@ -1,9 +1,9 @@
 .c-candidate {
   margin-bottom: 1.875rem;
   padding: .9375rem;
-  border: 1px solid #e6eaee;
-  border-radius: 4px;
-  background-color: #fff
+  border: 1px solid $base-border-color;
+  border-radius: $base-border-radius;
+  background-color: $color-white
 }
 
 .c-candidate__cover {
@@ -15,21 +15,15 @@
 }
 
 .c-candidate__info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
   top: -.9375rem;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  align-items: center;
   padding-bottom: .9375rem;
-  border-bottom: 1px solid #e6eaee
+  border-bottom: 1px solid $base-border-color
 }
 
 .c-candidate__avatar {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   position: relative;
   -ms-flex-negative: 0;
@@ -42,11 +36,7 @@
 }
 
 .c-candidate__meta {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%
 }

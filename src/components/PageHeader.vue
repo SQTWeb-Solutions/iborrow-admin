@@ -11,15 +11,14 @@
     <notifications dropdownToggle="dropdownAlerts" lastItem :items="alerts"></notifications>
 
     <div class="c-dropdown dropdown">
+      <!-- TODO: SHow logged in user informations -->
         <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="c-avatar__name" >QA</span>
         </a>
 
         <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
             <a class="c-dropdown__item dropdown-item" href="#">My Profile</a>
-            <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
-            <!-- Show this if the logge in user is admin -->
-            <a class="c-dropdown__item dropdown-item" href="#">Manage Roles</a>
+            <a class="c-dropdown__item dropdown-item" href="#">View Activities</a>
             <a class="c-dropdown__item dropdown-item" href="#">Logout</a>
         </div>
     </div>
