@@ -14,6 +14,7 @@ export default [
       children: [
         { path: '', redirect: { name: 'auth.login' } },
         { path: 'login', name: 'auth.login', component: require('@/views/Auth/Login').default, meta: { layout: 'auth' } },
+        { path: 'register', name: 'auth.register', component: require('@/views/Auth/Register').default, meta: { layout: 'auth' } },
         { path: 'password/forgot', name: 'auth.password.forgot', component: require('@/views/Auth/ForgotPassword').default, meta: { layout: 'auth' } }
       ]
     }

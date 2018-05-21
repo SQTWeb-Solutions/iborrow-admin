@@ -66,6 +66,10 @@ export const actions = {
         remember: true
       }))
   },
+  // create the admin account alone here
+  register ({commit}, details) {
+    return axios.post('/api/admin/create', details)
+  },
   // ajax request to check the logged in user information
   async fetchUser ({ commit }) {
     try {

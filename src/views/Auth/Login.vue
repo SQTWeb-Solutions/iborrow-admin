@@ -67,7 +67,6 @@ export default {
           return this.attemptLogin(data)
             .then((res) => this.$router.push({ name: 'landing-page' }))
             .catch(err => {
-              console.log(err)
               this.loading = false
               this.hasError = true
               this.errorMessage = err.response.data.message
