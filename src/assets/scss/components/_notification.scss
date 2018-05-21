@@ -24,3 +24,9 @@
   line-height: 20px;
   text-align: center
 }
+.dropdown-toggle::after {
+  display:none;
+}
+.dropdown-toggle.has-dropdown::after {
+  display:block !important;
+}

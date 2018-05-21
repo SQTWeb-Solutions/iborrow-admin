@@ -21,7 +21,7 @@
     cursor: pointer;
     overflow: visible;
     &:after {
-      display: block;
+      display: block !important;
       padding-left: 10px;
       color: #7f8fa4;
       font-family: FontAwesome;

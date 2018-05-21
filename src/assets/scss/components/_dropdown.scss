@@ -44,7 +44,11 @@
   border-bottom: 1px solid #dfe3e9;
   color: #354052;
   font-size: .875rem;
-  font-weight: 400
+  font-weight: 400;
+  white-space: normal !important;
+  p {
+    font-size: .875rem;
+  }
 }
 
 .c-dropdown__item:hover {

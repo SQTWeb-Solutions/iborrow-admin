@@ -18,7 +18,7 @@
 
       <button class="c-btn c-btn--fancy c-btn--fullwidth" type="submit" :disabled="loading"><font-awesome-icon icon="spinner" spin  v-if="loading" /> {{ loading ? 'Processing' : 'Send reset link' }}</button>
       <span class="c-divider c-divider--small has-text u-mv-medium">Remember your password</span>
-      <router-link tag="a" :to="{ name: 'auth.password.forgot' }" class="c-btn c-btn--secondary c-btn--fullwidth">Proceed to login</router-link>
+      <router-link tag="a" :to="{ name: 'auth.login' }" class="c-btn c-btn--secondary c-btn--fullwidth">Proceed to login</router-link>
     </form>
   </div>
 </template>

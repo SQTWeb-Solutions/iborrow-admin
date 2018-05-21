@@ -18,6 +18,9 @@ export default [
       ]
     }
   ]),
+  ...middleware('auth', [
+    { path: '/dashboard', name: 'dashboard', component: require('@/views/Dashboard/DashboardView').default, meta: { layout: 'dashboard', title: 'Dashboard' } }
+  ]),
   { path: '*', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
 ]
 
