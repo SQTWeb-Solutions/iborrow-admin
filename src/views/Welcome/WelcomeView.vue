@@ -30,7 +30,6 @@
 </template>
 <script>
 import wdtLoading from '@/assets/scripts/wtdloading.js'
-import Cookies from 'js-cookie'
 
 export default {
   name: 'welcome-page',
@@ -40,19 +39,10 @@ export default {
     * Parameters [$store.getters]
      */
     checkUserStatus () {
-      Cookies.remove('token')
-      Cookies.remove('roles')
-      Cookies.remove('onboard')
       if (!this.$store.getters['auth/token']) {
         this.$router.push({ name: 'auth.login' })
       } else {
-        // const roles = this.$store.getters['auth/roles']
-        const onboardStatus = this.$store.getters['auth/onboard']
-        if (!onboardStatus || onboardStatus === 'false') {
-          this.$router.push({ name: 'onboard.page' })
-        } else {
-          this.$router.push({ name: 'dashboard' })
-        }
+        this.$router.push({ name: 'dashboard' })
       }
     }
   },

@@ -13,6 +13,7 @@ export const state = {
 export const getters = {
   user: state => state.user,
   token: state => state.token,
+  roles: state => state.roles,
   check: state => state.user !== null
 }
 
@@ -59,7 +60,7 @@ export const actions = {
   // action to log the user in on the server and fetch the user data
   login ({dispatch}, details) {
     return axios.post('/api/auth/signin', details)
-      .then(res => dispatch('auth/saveToken', {
+      .then(res => dispatch('saveToken', {
         token: res.data.token,
         roles: res.data.roles,
         remember: true
