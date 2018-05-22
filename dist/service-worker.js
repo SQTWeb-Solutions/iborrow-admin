@@ -11,19 +11,19 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js')
 
 importScripts(
-  "/precache-manifest.941bf68385c898bfc5e983070b5895d6.js"
-);
+  '/precache-manifest.941bf68385c898bfc5e983070b5895d6.js'
+)
 
-workbox.core.setCacheNameDetails({prefix: "iborrow-admin"});
+workbox.core.setCacheNameDetails({prefix: 'iborrow-admin'})
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
  * requests for URLs in the manifest.
  * See https://goo.gl/S9QRab
  */
-self.__precacheManifest = [].concat(self.__precacheManifest || []);
-workbox.precaching.suppressWarnings();
-workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
+self.__precacheManifest = [].concat(self.__precacheManifest || [])
+workbox.precaching.suppressWarnings()
+workbox.precaching.precacheAndRoute(self.__precacheManifest, {})
