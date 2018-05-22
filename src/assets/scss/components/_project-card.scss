@@ -26,11 +26,7 @@
 }
 
 .c-project-card__meta {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 1.25rem 1.875rem
+  padding: 0.25rem 1.875rem
 }

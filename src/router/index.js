@@ -30,7 +30,7 @@ function make () {
     scrollBehavior,
     mode: 'history',
     routes: routes.map(beforeEnter),
-    linkActiveClass: 'is-active'
+    linkExactActiveClass: 'is-active'
   })
 
   // Register before guard.

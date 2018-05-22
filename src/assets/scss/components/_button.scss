@@ -91,10 +91,13 @@
   margin-left: 1.25rem;
   padding: .5rem 8px;
   border-left: 1px solid;
+  border-top: none !important;
+  border-right: none !important;
   border-color: inherit;
   color: inherit;
-  font-family: FontAwesome;
-  content: "\f107"
+  font-family: 'feather';
+  content: "\e842";
+  margin-right: 8px;
 }
 
 .c-btn.is-disabled,

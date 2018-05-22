@@ -26,7 +26,6 @@
 .c-candidate__avatar {
   display: inline-flex;
   position: relative;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   margin-right: .9375rem;
   margin-left: .625rem;
@@ -48,7 +47,8 @@
 
 .c-candidate__country {
   display: block;
-  color: #7f8fa4
+  color: #7f8fa4;
+  text-transform: capitalize;
 }
 
 .c-candidate__country i {

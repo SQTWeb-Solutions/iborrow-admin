@@ -24,12 +24,12 @@
         <a class="c-sidebar__link" target="_blank" href="#">
           <i class="feather icon-hash u-mr-xsmall"></i>Trendings
         </a>
-        <a class="c-sidebar__link" target="_blank" href="#">
+        <router-link :to="{ name: 'borrowers.requests' }" class="c-sidebar__link" >
           <i class="feather icon-cast u-mr-xsmall"></i>Borrowing Requests
-        </a>
-        <a class="c-sidebar__link" target="_blank" href="#">
+        </router-link>
+        <router-link class="c-sidebar__link" :to="{ name: 'borrowers.all' }">
           <i class="feather icon-package u-mr-xsmall"></i>All Borrowers
-        </a>
+        </router-link>
       </li>
     </ul>
     <h4 class="c-sidebar__title">Investors</h4>
@@ -38,12 +38,12 @@
         <a class="c-sidebar__link" target="_blank" href="#">
           <i class="feather icon-hash u-mr-xsmall"></i>Trendings
         </a>
-        <a class="c-sidebar__link" target="_blank" href="#">
+        <router-link :to="{ name: 'investors.requests' }" class="c-sidebar__link" tag="a">
           <i class="feather icon-bookmark u-mr-xsmall"></i>Investment Requests
-        </a>
-        <a class="c-sidebar__link" target="_blank" href="#">
+        </router-link>
+        <router-link :to="{ name: 'investors.all' }" class="c-sidebar__link" tag="a">
           <i class="feather icon-briefcase u-mr-xsmall"></i>All Investors
-        </a>
+        </router-link>
       </li>
     </ul>
     <h4 class="c-sidebar__title">Business Opportunity</h4>

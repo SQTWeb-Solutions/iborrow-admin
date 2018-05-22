@@ -32,6 +32,22 @@ export default [
         ])
       ]
     },
+    {
+      path: '/investors',
+      component: () => import('@/views/Users/Template'),
+      children: [
+        { path: '', name: 'investors.all', component: require('@/views/Users/InvestorsView').default, meta: { layout: 'dashboard', title: 'Invesors List' } },
+        { path: 'requests', name: 'investors.requests', component: require('@/views/Users/Requests/InvestorsRequestView').default, meta: { layout: 'dashboard', title: 'Invesors Request' } }
+      ]
+    },
+    {
+      path: '/borrowers',
+      component: () => import('@/views/Users/Template'),
+      children: [
+        { path: '', name: 'borrowers.all', component: require('@/views/Users/BorrowersView').default, meta: { layout: 'dashboard', title: 'Borrowers List' } },
+        { path: 'requests', name: 'borrowers.requests', component: require('@/views/Users/Requests/BorrowersRequestView').default, meta: { layout: 'dashboard', title: 'Borrowers Requests' } }
+      ]
+    },
     { path: '/unauthorised', name: 'unauthorised', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
   ]),
   { path: '*', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
