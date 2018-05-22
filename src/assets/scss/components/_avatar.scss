@@ -132,6 +132,8 @@
 		min-width: $avatar-img-xlarge-width;
 		height: $avatar-img-xlarge-height;
     line-height: $avatar-img-xlarge-height;
+    display: block;
+    font-size: $avatar-font-size-lg;
   }
 }
 
@@ -146,6 +148,8 @@
 		min-width: $avatar-img-huge-width;
 		height: $avatar-img-huge-height;
     line-height: $avatar-img-huge-height;
+    display: block;
+    font-size: $avatar-font-size-lg;
   }
 }
 

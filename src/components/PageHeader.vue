@@ -17,9 +17,9 @@
         </a>
 
         <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
-            <a class="c-dropdown__item dropdown-item" href="#">My Profile</a>
+            <router-link :to="{ name: 'profile.edit' }"  class="c-dropdown__item dropdown-item">My Profile</router-link>
             <a class="c-dropdown__item dropdown-item" href="#">View Activities</a>
-            <a class="c-dropdown__item dropdown-item" href="#">Logout</a>
+            <a @click.prevent="logoutUser" class="c-dropdown__item dropdown-item" href="#">Logout</a>
         </div>
     </div>
   </header>
@@ -39,6 +39,19 @@ export default {
   },
   components: {
     Notifications
+  },
+  methods: {
+    //  Logout the user from the application
+    async logoutUser (e) {
+      e.preventDefault()
+      try {
+        this.$toastr.s('Logging out now')
+        await this.$store.dispatch('auth/logout')
+        this.$router.push({ name: 'landing-page' })
+      } catch (err) {
+        this.$toastr.e(err.response.data.message)
+      }
+    }
   }
 }
 </script>

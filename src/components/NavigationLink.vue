@@ -91,9 +91,9 @@
     <h4 class="c-sidebar__title">Account</h4>
     <ul class="c-sidebar__list">
       <li class="c-sidebar__item">
-        <a class="c-sidebar__link" target="_blank" href="#">
+        <router-link class="c-sidebar__link" :to="{ name: 'my-profile' }">
           <i class="feather icon-user u-mr-xsmall"></i>My Account
-        </a>
+        </router-link>
       </li>
       <li class="c-sidebar__item">
         <a class="c-sidebar__link" href="#" @click.prevent="logoutUser">

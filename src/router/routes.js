@@ -22,6 +22,16 @@ export default [
   ...middleware('auth', [
     { path: '/dashboard', name: 'dashboard', component: require('@/views/Dashboard/DashboardView').default, meta: { layout: 'dashboard', title: 'Dashboard' } },
     {
+      path: '/profile',
+      component: () => import('@/views/Profile/ProfileView'),
+      children: [
+        { path: '', name: 'my-profile', redirect: { name: 'profile.edit' } },
+        { path: 'edit', name: 'profile.edit', component: require('@/views/Profile/PersonalInfo').default, meta: { layout: 'dashboard', title: 'Edit Profile Information' } },
+        { path: 'security', name: 'profile.security', component: require('@/views/Profile/SecurityInfo').default, meta: { layout: 'dashboard', title: 'Edit Security Information' } }
+      ]
+    },
+    { path: '/profile', name: 'my-profile', component: require('@/views/Profile/ProfileView').default, meta: { layout: 'dashboard', title: 'My Profile' } },
+    {
       path: '/members',
       component: () => import('@/views/Members/Template'),
       children: [
