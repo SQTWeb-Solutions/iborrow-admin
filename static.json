@@ -1,0 +1,16 @@
+{
+  "root": "dist",
+  "clean_urls": true,
+  "routes": {
+    "/css/*": "/css/",
+    "/js/*": "/js/",
+    "/img/*": "/img/",
+    "/fonts/*": "/fonts/",
+    "/**": "index.html"
+  },
+  "proxies": {
+    "/api/": {
+      "origin": "${VUE_APP_PROXY_URL}/"
+    }
+  }
+}
