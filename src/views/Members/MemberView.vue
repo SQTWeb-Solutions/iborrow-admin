@@ -19,6 +19,8 @@
       <div class="row" v-if="loaded">
         <member-list v-for="member in members"
         :key="member.id"
+        :id="member._id"
+        v-on:show-modal="showOutModal"
         :name="member.displayName"
         :role="member.roles[0]"
         :currentUserRole="currentUserRole"
@@ -31,6 +33,7 @@
       </div>
       <empty-member v-if="emptyMember"></empty-member>
     </div>
+    <delete-modal v-if="apendModal" :member="deletingMemberId"></delete-modal>
   </div>
 </template>
 
@@ -39,6 +42,7 @@ import SearchLoader from '@/components/Loader/SearchLoader'
 import MemberList from '@/components/Member/MemberList'
 import MemberCounter from '@/components/Member/MemberCounter'
 import EmptyMember from '@/components/Member/EmptyMember'
+import DeleteModal from '@/components/Member/Modal'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'member-view',
@@ -46,6 +50,8 @@ export default {
     return {
       loaded: false,
       active: false,
+      apendModal: false,
+      deletingMemberId: null,
       loadedCount: false,
       currentUserRole: false,
       roles: [],
@@ -58,7 +64,8 @@ export default {
     SearchLoader,
     MemberList,
     MemberCounter,
-    EmptyMember
+    EmptyMember,
+    DeleteModal
   },
   computed: {
     ...mapGetters('auth', {
@@ -89,7 +96,11 @@ export default {
     ...mapActions('member', {
       getMembers: 'fetchMember',
       getMembersCount: 'fetchMemberCount'
-    })
+    }),
+    showOutModal (userId) {
+      this.apendModal = true
+      this.deletingMemberId = userId
+    }
   },
   metaInfo () {
     return {

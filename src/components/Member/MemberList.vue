@@ -14,7 +14,7 @@
               </h3>
 
               <div class="c-candidate__actions">
-                  <a href="#" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Delete User"><i class="feather icon-trash"></i></a>
+                  <a href="#" @click="$emit('show-modal', id)" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Delete User"><i class="feather icon-trash"></i></a>
                   <a href="#" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Edit User"><i class="feather icon-settings"></i></a>
               </div>
           </div>
@@ -38,6 +38,9 @@
 export default {
   name: 'member-list',
   props: {
+    id: {
+      type: String
+    },
     username: {
       type: String
     },
