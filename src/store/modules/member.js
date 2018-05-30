@@ -13,5 +13,13 @@ export const actions = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async fetchMemberCount ({commit}) {
+    try {
+      let {data} = await axios.get('api/admin/users/count')
+      return data
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

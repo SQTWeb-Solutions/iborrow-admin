@@ -3,18 +3,17 @@
     <div class="c-toolbar u-justify-between u-mb-medium">
       <nav class="c-counter-nav">
           <p class="c-counter-nav__title">Statistics:</p>
-          <div v-if="loaded" class="d-flex flex-row">
-            <member-counter title="Moderator" :total="20"></member-counter>
-            <member-counter title="Editor" :total="10"></member-counter>
-            <member-counter title="Consultant" :total="40"></member-counter>
-            <member-counter title="Admin" :total="20" :active="active"></member-counter>
+          <div v-if="loadedCount" class="d-flex flex-row">
+            <member-counter v-for="group in membersCount"
+              :key="group.id"
+              :title="group._id[0]" :total="group.count" :active="group._id[0]===currentUserRole ? true : false"></member-counter>
           </div>
-          <div class="c-counter-nav__item col-4" v-else>
+          <div class="c-counter-nav__item col-4 mt-1" style="width:200px" v-else>
               <content-placeholders-text :lines="1" />
           </div>
       </nav>
 
-      <router-link :to="{ name: 'members.add' }" class="c-btn c-btn--info"><i class="feather icon-plus u-mr-xsmall u-opacity-heavy"></i> Add Member</router-link>
+      <router-link v-if="currentUserRole === 'admin'" :to="{ name: 'members.add' }" class="c-btn c-btn--info"><i class="feather icon-plus u-mr-xsmall u-opacity-heavy"></i> Add Member</router-link>
     </div>
     <div class="container-fluid">
       <div class="row" v-if="loaded">
@@ -46,10 +45,12 @@ export default {
   data () {
     return {
       loaded: false,
-      active: true,
+      active: false,
+      loadedCount: false,
       currentUserRole: false,
       roles: [],
       members: [],
+      membersCount: [],
       emptyMember: false
     }
   },
@@ -77,10 +78,17 @@ export default {
         this.loaded = true
       })
       .catch(error => this.$toastr.e(error.message))
+    this.getMembersCount()
+      .then(membersCount => {
+        this.membersCount = membersCount
+        this.loadedCount = true
+      })
+      .catch(error => this.$toastr.e(error.message))
   },
   methods: {
     ...mapActions('member', {
-      getMembers: 'fetchMember'
+      getMembers: 'fetchMember',
+      getMembersCount: 'fetchMemberCount'
     })
   },
   metaInfo () {

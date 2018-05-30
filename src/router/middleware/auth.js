@@ -9,6 +9,8 @@ import store from '@/store'
 // The middleware will check if the user is logged in
 export default async (to, from, next) => {
   if (!store.getters['auth/token']) {
+    // TODO: Get the user from URL and pass it as a param which the router can then redrect the user after successful login.
+    // TODO: Important
     next({ name: 'auth.login' })
   } else {
     const roles = store.getters['auth/roles']

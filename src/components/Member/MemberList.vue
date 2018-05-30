@@ -15,7 +15,7 @@
 
               <div class="c-candidate__actions">
                   <a href="#" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Delete User"><i class="feather icon-trash"></i></a>
-                  <a href="#"><i class="feather icon-settings"></i></a>
+                  <a href="#" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Edit User"><i class="feather icon-settings"></i></a>
               </div>
           </div>
       </div>
