@@ -30,15 +30,16 @@
         <search-loader></search-loader>
         <search-loader></search-loader>
       </div>
+      <empty-member v-if="emptyMember"></empty-member>
     </div>
   </div>
 </template>
 
 <script>
-// TODO: Set paginatin and search
 import SearchLoader from '@/components/Loader/SearchLoader'
 import MemberList from '@/components/Member/MemberList'
 import MemberCounter from '@/components/Member/MemberCounter'
+import EmptyMember from '@/components/Member/EmptyMember'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'member-view',
@@ -48,13 +49,15 @@ export default {
       active: true,
       currentUserRole: false,
       roles: [],
-      members: []
+      members: [],
+      emptyMember: false
     }
   },
   components: {
     SearchLoader,
     MemberList,
-    MemberCounter
+    MemberCounter,
+    EmptyMember
   },
   computed: {
     ...mapGetters('auth', {
@@ -65,6 +68,11 @@ export default {
     this.currentUserRole = this.userRole
     this.getMembers()
       .then(allMembers => {
+        /** Check if the member is empty or has content */
+        if (Object.keys(allMembers).length === 0) {
+          this.emptyMember = true
+          this.loaded = true
+        }
         this.members = allMembers
         this.loaded = true
       })

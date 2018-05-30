@@ -21,6 +21,7 @@
                   </div>
                     <div class="col-lg-2 u-text-center">
                       <div class="c-avatar c-avatar--xlarge u-inline-block">
+                      <!-- TODO: Show The user image here if preview the profile on edit -->
                         <img class="c-avatar__img" src="@/assets/img/avatar/avatar1.jpg" alt="Avatar">
                       </div>
                     </div>
@@ -55,12 +56,12 @@
                     <div class="col-lg-5">
                         <div class="c-field u-mb-small">
                             <label class="c-field__label" for="email">E-mail Address</label>
-                            <input class="c-input" :class="{ 'c-input--danger': errors.has('email') }" v-model="email"  name="email" v-validate="'required|email'" type="email" id="email" placeholder="jason@clark.com">
+                            <input class="c-input" :class="{ 'c-input--danger': errors.has('email') }" v-model="email"  name="email" v-validate="'required|email|uniqueEmail'" type="email" id="email" placeholder="jason@clark.com">
                             <form-error :caption="errors.first('email')" v-if="errors.has('email')"></form-error>
                         </div>
                         <div class="c-field u-mb-small">
                             <label class="c-field__label" for="username">Username</label>
-                            <input class="c-input" :class="{ 'c-input--danger': errors.has('username') }" v-model="username"  name="username" v-validate="'required|alpha_num'" type="text" id="username" placeholder="jason@clark.com">
+                            <input class="c-input" :class="{ 'c-input--danger': errors.has('username') }" v-model="username"  name="username" v-validate="'required|alpha_num|uniqueUsername'" type="text" id="username" placeholder="jason@clark.com">
                             <form-error :caption="errors.first('username')" v-if="errors.has('username')"></form-error>
                         </div>
                     </div>
@@ -83,6 +84,41 @@ import FormError from '@/components/FormError'
 import Roles from '@/resources/datas/roles'
 import SelectTwo from '@/components/SelectTwo'
 import { mapActions } from 'vuex'
+import { Validator } from 'vee-validate'
+import axios from 'axios'
+
+const isUnique = (value) => {
+  return axios.post('/api/auth/validate/email', { email: value }).then((response) => {
+    return {
+      valid: response.data.valid,
+      data: {
+        message: response.data.message
+      }
+    }
+  })
+}
+const isUniqueUsername = (value) => {
+  return axios.post('/api/auth/validate/username', { username: value }).then((response) => {
+    return {
+      valid: response.data.valid,
+      data: {
+        message: response.data.message
+      }
+    }
+  })
+}
+Validator.extend('uniqueEmail', {
+  validate: isUnique,
+  getMessage: (field, params, data) => {
+    return data.message
+  }
+})
+Validator.extend('uniqueUsername', {
+  validate: isUniqueUsername,
+  getMessage: (field, params, data) => {
+    return data.message
+  }
+})
 export default {
   name: 'member-profile',
   data () {
@@ -126,6 +162,7 @@ export default {
             .catch(err => {
               this.loading = false
               this.hasError = true
+              console.log(err)
               this.errorMessage = err.response.data.message
             })
         } else {
