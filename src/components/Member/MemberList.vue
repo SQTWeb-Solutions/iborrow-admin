@@ -14,17 +14,17 @@
             </h3>
             <div class="c-candidate__actions">
               <a href="#" @click="$emit('show-modal', id, index)" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Delete User"><i class="feather icon-trash"></i></a>
-              <a href="#" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Edit User"><i class="feather icon-settings"></i></a>
+              <router-link :to="{name: 'members.edit', params: { username: username, userid: id } }" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Edit User"><i class="feather icon-settings"></i></router-link>
             </div>
           </div>
       </div>
       <div class="c-candidate__footer">
-        <a href="#" class="c-btn c-btn--info">
+        <a href="#" class="c-btn c-btn--fancy">
           <i class="feather icon-message-square u-mr-xsmall u-opacity-heavy"></i>New Message
         </a>
-        <a href="#" class="c-btn c-btn--primary">
+        <router-link :to="{ name: 'members.profile', params: { username: username, userid:id } }" class="c-btn c-btn--primary">
           <i class="feather icon-users u-mr-xsmall u-opacity-heavy"></i>View Info
-        </a>
+        </router-link>
       </div>
     </div>
   </div>

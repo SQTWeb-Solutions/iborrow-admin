@@ -4,7 +4,7 @@
       <div class="col-12">
         <div class="c-tabs">
           <ul class="c-tabs__list c-tabs__list--splitted nav nav-tabs" id="myTab" role="tablist">
-              <li class="c-tabs__item"><a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{this.$route.params.username ? 'Edit Info' : 'Add Info' }}</a></li>
+              <li class="c-tabs__item"><a class="c-tabs__link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">{{this.$route.params.username ? 'Edit User Info' : 'Add Info' }}</a></li>
           </ul>
           <div class="c-tabs__content tab-content" id="nav-tabContent">
             <div class="c-tabs__pane active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -21,8 +21,8 @@
                   </div>
                     <div class="col-lg-2 u-text-center">
                       <div class="c-avatar c-avatar--xlarge u-inline-block">
-                      <!-- TODO: Show The user image here if preview the profile on edit -->
-                        <img class="c-avatar__img" src="@/assets/img/avatar/avatar1.jpg" alt="Avatar">
+                        <span class="c-avatar__name" v-if="this.$route.params.username">SH</span>
+                        <img class="c-avatar__img" v-else src="@/assets/img/avatar/avatar1.jpg" alt="Avatar">
                       </div>
                     </div>
                     <div class="col-lg-5">
@@ -39,8 +39,9 @@
                         </div>
                         <div class="c-field u-mb-small">
                             <label class="c-field__label" for="email">Role</label>
+                            <!-- TODO: Show the active user role to be selected on the select2 -->
                             <select-two v-model="userrole">
-                              <option v-for="role in roles"
+                              <option :selected="role.value === userrole" v-for="role in roles"
                               :key="role.id" :value="role.value">{{role.role}} ({{role.description}})</option>
                             </select-two>
                             <form-error :caption="errors.first('userrole')" v-if="errors.has('userlastname')"></form-error>
@@ -48,7 +49,7 @@
                               <span class="c-note__icon">
                                 <i class="feather icon-alert-octagon"></i>
                               </span>
-                              <p>Set a default role permision for member, each roles has a certain permision attached to it.</p>
+                              <p>{{this.$route.params.username ? 'Change the permision assigned to user, each roles has a certain permision attached to it., ' : 'Set a default role permision for member, each roles has a certain permision attached to it.' }}</p>
                             </div>
                         </div>
                     </div>
@@ -56,12 +57,12 @@
                     <div class="col-lg-5">
                         <div class="c-field u-mb-small">
                             <label class="c-field__label" for="email">E-mail Address</label>
-                            <input class="c-input" :class="{ 'c-input--danger': errors.has('email') }" v-model="email"  name="email" v-validate="'required|email|uniqueEmail'" type="email" id="email" placeholder="jason@clark.com">
+                            <input class="c-input" :disable="this.$route.params.username" :readonly="this.$route.params.username" :class="{ 'c-input--danger': errors.has('email') }" v-model="email"  name="email" v-validate="'required|email'" :v-validate="this.$route.params.username ? '' : uniqueEmail" type="email" id="email" placeholder="jason@clark.com">
                             <form-error :caption="errors.first('email')" v-if="errors.has('email')"></form-error>
                         </div>
                         <div class="c-field u-mb-small">
                             <label class="c-field__label" for="username">Username</label>
-                            <input class="c-input" :class="{ 'c-input--danger': errors.has('username') }" v-model="username"  name="username" v-validate="'required|alpha_num|uniqueUsername'" type="text" id="username" placeholder="jason@clark.com">
+                            <input class="c-input" :disable="this.$route.params.username" :readonly="this.$route.params.username" :class="{ 'c-input--danger': errors.has('username') }" v-model="username"  name="username" v-validate="'required|alpha_num'" :v-validate="this.$route.params.username ? '' : uniqueUsername" type="text" id="username" placeholder="jason@clark.com">
                             <form-error :caption="errors.first('username')" v-if="errors.has('username')"></form-error>
                         </div>
                     </div>
@@ -129,6 +130,7 @@ export default {
       firstname: null,
       lastname: null,
       email: null,
+      shortname: null,
       loading: false,
       errorMessage: null,
       hasError: false
@@ -140,7 +142,8 @@ export default {
   },
   methods: {
     ...mapActions('member', {
-      attemptRegister: 'save'
+      attemptRegister: 'save',
+      getMemberById: 'getMemberById'
     }),
     validateBeforeSubmit (e) {
       this.$validator.validateAll().then((result) => {
@@ -169,6 +172,30 @@ export default {
           this.loading = false
         }
       })
+    }
+  },
+  created () {
+    const id = this.$route.params.userid
+    // check if the user can be found at all
+    if (id) {
+      this.getMemberById(id)
+        .then(member => {
+          console.log(member)
+          this.userrole = member.roles[0]
+          this.firstname = member.firstName
+          this.lastname = member.lastName
+          this.email = member.email
+          this.username = member.username
+          this.shortname = member.shortName
+        })
+        .catch(error => this.$toastr.e(error.message))
+    } else {
+      this.$router.push({ name: 'members.add' })
+    }
+  },
+  metaInfo () {
+    return {
+      title: 'Members'
     }
   }
 }

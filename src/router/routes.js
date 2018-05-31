@@ -30,15 +30,21 @@ export default [
         { path: 'security', name: 'profile.security', component: require('@/views/Profile/SecurityInfo').default, meta: { layout: 'dashboard', title: 'Edit Security Information' } }
       ]
     },
-    { path: '/profile', name: 'my-profile', component: require('@/views/Profile/ProfileView').default, meta: { layout: 'dashboard', title: 'My Profile' } },
     {
       path: '/members',
       component: () => import('@/views/Members/Template'),
       children: [
         { path: '', name: 'members.all', component: require('@/views/Members/MemberView').default, meta: { layout: 'dashboard', title: 'All Members' } },
+        {
+          path: '@:username/:userid',
+          component: () => import('@/views/Members/MemberProfile'),
+          children: [
+            { path: '', name: 'members.profile', component: require('@/views/Members/ProfileActivities').default, meta: { layout: 'dashboard', title: 'Member Profile', roles: ['admin', 'editor'] } }
+          ]
+        },
         ...middleware(['roles'], [
           { path: 'add', name: 'members.add', component: require('@/views/Members/AddMember').default, meta: { layout: 'dashboard', title: 'Add Member', roles: ['admin', 'editor'] } },
-          { path: '/edit/:username', name: 'members.edit', component: require('@/views/Members/AddMember').default, meta: { layout: 'dashboard', title: 'Edit Member', roles: ['admin'] } }
+          { path: '/edit/@:username/:userid', name: 'members.edit', component: require('@/views/Members/AddMember').default, meta: { layout: 'dashboard', title: 'Edit Member', roles: ['admin'] } }
         ])
       ]
     },
@@ -58,7 +64,7 @@ export default [
         { path: 'requests', name: 'borrowers.requests', component: require('@/views/Users/Requests/BorrowersRequestView').default, meta: { layout: 'dashboard', title: 'Borrowers Requests' } }
       ]
     },
-    { path: '/unauthorised', name: 'unauthorised', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
+    { path: '/unauthorised', name: 'unauthorised', component: require('@/views/Error/UnauthorisedView').default, meta: { layout: 'auth' } }
   ]),
   { path: '*', component: require('@/views/Error/NotFoundView').default, meta: { layout: 'auth' } }
 ]
