@@ -21,5 +21,21 @@ export const actions = {
     } catch (e) {
       console.log(e)
     }
+  },
+  async deletingMember ({commit}, payload) {
+    try {
+      let { data } = await axios.get(`api/admin/user/${payload}`)
+      return data
+    } catch (e) {
+      console.log(e)
+    }
+  },
+  async deleteMember ({commit}, payload) {
+    try {
+      let { data } = await axios.delete(`api/admin/user/${payload}`)
+      return data
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

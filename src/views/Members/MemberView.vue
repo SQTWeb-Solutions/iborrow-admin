@@ -33,7 +33,7 @@
       </div>
       <empty-member v-if="emptyMember"></empty-member>
     </div>
-    <delete-modal v-if="apendModal" :member="deletingMemberId"></delete-modal>
+    <delete-modal v-if="apendModal" v-on:close-modal="closeShownModal" :member="deletingMemberId"></delete-modal>
   </div>
 </template>
 
@@ -100,6 +100,9 @@ export default {
     showOutModal (userId) {
       this.apendModal = true
       this.deletingMemberId = userId
+    },
+    closeShownModal () {
+      this.apendModal = false
     }
   },
   metaInfo () {
