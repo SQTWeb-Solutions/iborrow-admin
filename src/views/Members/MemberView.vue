@@ -25,7 +25,8 @@
         :name="member.displayName"
         :role="member.roles[0]"
         :currentUserRole="currentUserRole"
-        :username="member.username"></member-list>
+        :username="member.username"
+        :shortName="member.shortName"></member-list>
       </div>
       <div class="row" v-else>
         <search-loader></search-loader>
