@@ -14,7 +14,7 @@
               </h3>
 
               <div class="c-candidate__actions">
-                  <a href="#" @click="$emit('show-modal', id)" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Delete User"><i class="feather icon-trash"></i></a>
+                  <a href="#" @click="$emit('show-modal', id, index)" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Delete User"><i class="feather icon-trash"></i></a>
                   <a href="#" v-if="currentUserRole === 'admin'" class="c-tooltip c-tooltip--bottom" aria-label="Edit User"><i class="feather icon-settings"></i></a>
               </div>
           </div>
@@ -33,11 +33,13 @@
 
 <script>
 // TODO: Set links to redirect to
-// TODO: Set user type
 // TODO: Set the user profile picture
 export default {
   name: 'member-list',
   props: {
+    index: {
+      type: Number
+    },
     id: {
       type: String
     },

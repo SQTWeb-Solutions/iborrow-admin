@@ -17,9 +17,10 @@
     </div>
     <div class="container-fluid">
       <div class="row" v-if="loaded">
-        <member-list v-for="member in members"
-        :key="member.id"
+        <member-list v-for="(member, index) in members"
+        :key="index"
         :id="member._id"
+        :index="index"
         v-on:show-modal="showOutModal"
         :name="member.displayName"
         :role="member.roles[0]"
@@ -33,7 +34,7 @@
       </div>
       <empty-member v-if="emptyMember"></empty-member>
     </div>
-    <delete-modal v-if="apendModal" v-on:close-modal="closeShownModal" :member="deletingMemberId"></delete-modal>
+    <delete-modal v-if="apendModal" v-on:remove-member="removeMemberFromList" v-on:close-modal="closeShownModal" :member="deletingMemberId" :memberIndex="deletingMemberIndex"></delete-modal>
   </div>
 </template>
 
@@ -52,6 +53,7 @@ export default {
       active: false,
       apendModal: false,
       deletingMemberId: null,
+      deletingMemberIndex: null,
       loadedCount: false,
       currentUserRole: false,
       roles: [],
@@ -97,12 +99,17 @@ export default {
       getMembers: 'fetchMember',
       getMembersCount: 'fetchMemberCount'
     }),
-    showOutModal (userId) {
+    showOutModal (userId, index) {
       this.apendModal = true
       this.deletingMemberId = userId
+      this.deletingMemberIndex = index
     },
     closeShownModal () {
       this.apendModal = false
+    },
+    removeMemberFromList (index) {
+      this.members.splice(index, 1)
+      this.deletingMemberIndex = null
     }
   },
   metaInfo () {

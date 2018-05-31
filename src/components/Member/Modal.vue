@@ -65,7 +65,8 @@ export default {
   props: {
     member: {
       type: String
-    }
+    },
+    memberIndex: Number
   },
   mounted () {
     // eslint-disable-next-line
@@ -98,9 +99,9 @@ export default {
       vm.$emit('close-modal')
     },
     deleteMemberAction () {
-      console.log('asdjhfg')
       this.deleteMember(this.member)
         .then(res => {
+          this.$emit('remove-member', this.memberIndex)
           this.$toastr.s(res.message)
           this.closeModal()
         })
