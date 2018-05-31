@@ -15,9 +15,9 @@ export const actions = {
     }
   },
   // get all added members
-  async fetchMember ({commit}) {
+  async fetchMember ({commit}, payload) {
     try {
-      let { data } = await axios.get('api/admin/user')
+      let { data } = await axios.get(`api/admin/users/${payload}`)
       return data
     } catch (e) {
       console.log(e)

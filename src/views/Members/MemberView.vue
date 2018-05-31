@@ -33,6 +33,7 @@
         <search-loader></search-loader>
         <search-loader></search-loader>
       </div>
+      <spinner-loader title="Loading more members" v-if="loadMore"></spinner-loader>
       <empty-member v-if="emptyMember"></empty-member>
     </div>
     <delete-modal v-if="apendModal" v-on:remove-member="removeMemberFromList" v-on:close-modal="closeShownModal" :member="deletingMemberId" :memberIndex="deletingMemberIndex"></delete-modal>
@@ -45,7 +46,9 @@ import MemberList from '@/components/Member/MemberList'
 import MemberCounter from '@/components/Member/MemberCounter'
 import EmptyMember from '@/components/Member/EmptyMember'
 import DeleteModal from '@/components/Member/Modal'
+import SpinnerLoader from '@/components/Loader/SpinnerLoader'
 import { mapGetters, mapActions } from 'vuex'
+import $ from 'jquery'
 export default {
   name: 'member-view',
   data () {
@@ -60,7 +63,11 @@ export default {
       roles: [],
       members: [],
       membersCount: [],
-      emptyMember: false
+      emptyMember: false,
+      page: 1,
+      end: false,
+      loadMore: false,
+      loadEnd: false
     }
   },
   components: {
@@ -68,7 +75,8 @@ export default {
     MemberList,
     MemberCounter,
     EmptyMember,
-    DeleteModal
+    DeleteModal,
+    SpinnerLoader
   },
   computed: {
     ...mapGetters('auth', {
@@ -77,14 +85,17 @@ export default {
   },
   created () {
     this.currentUserRole = this.userRole
-    this.getMembers()
-      .then(allMembers => {
+    this.getMembers(this.page)
+      .then(data => {
         /** Check if the member is empty or has content */
-        if (Object.keys(allMembers).length === 0) {
+        if (Object.keys(data).length === 0) {
           this.emptyMember = true
           this.loaded = true
         }
-        this.members = allMembers
+        this.members.push(...data.users)
+        this.page = (data.current === data.pages) ? Number(data.current) : Number(data.current) + 1
+        // eslint-disbable-next-line
+        this.end = (data.current === data.pages) !== false
         this.loaded = true
       })
       .catch(error => this.$toastr.e(error.message))
@@ -111,11 +122,54 @@ export default {
     removeMemberFromList (index) {
       this.members.splice(index, 1)
       this.deletingMemberIndex = null
+    },
+    async getMoreMember () {
+      try {
+        if (!this.end) {
+          this.loadMore = true
+          this.getMembers(this.page)
+            .then(data => {
+              this.end = data.current === data.pages
+              this.page = (data.current === data.pages) ? Number(data.current) : Number(data.current) + 1
+              setTimeout(() => {
+                this.members.push(...data.users)
+                this.loadMore = false
+              }, 1000)
+            })
+            .catch(error => this.$toastr.e(error.message))
+        }
+      } catch (e) {
+        console.log(e)
+      }
     }
   },
   metaInfo () {
     return {
       title: 'Members'
+    }
+  },
+  mounted () {
+    let _this = this
+    const $window = $(window)
+    const $document = $(document)
+    let scheduled = false
+
+    $document.ready(function () {
+      $window
+        .off('scroll', ScrollHandler)
+        .on('scroll', ScrollHandler)
+    })
+
+    function ScrollHandler (e) {
+      if (!scheduled) {
+        scheduled = true
+        setTimeout(function () {
+          if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            _this.getMoreMember()
+          }
+          scheduled = false
+        }, 200)
+      }
     }
   }
 }

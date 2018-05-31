@@ -12,6 +12,9 @@
 </template>
 
 <script>
+// TODO: Member profile information to show
+// TODO: Member profile activities to show
+// TODO: Messages to show  messaging view for the users to communicate and load all already send messages between member
 import { mapGetters } from 'vuex'
 import ProfileInfo from '@/components/Member/ProfileInfo'
 export default {
