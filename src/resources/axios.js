@@ -29,8 +29,13 @@ async function logout () {
   }
 }
 
+const networkError = () => {
+  // TODO: Show a notification for the user for a network access error and then try to persisist with connection here.
+  console.log('Network Error')
+}
 // Response interceptor
 axios.interceptors.response.use(response => response, error => {
+  if (!error.status) networkError() // show the network error code for the user
   const {
     status
   } = error.response
